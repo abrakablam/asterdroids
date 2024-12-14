@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 venv
 __pycache__
+=======
+venv/
+__pycache__/
+>>>>>>> 2188b51 (adding players)
