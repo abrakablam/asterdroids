@@ -10,16 +10,25 @@ def main():
     dt = 0
     player = Player(x=SCREEN_WIDTH / 2, y=SCREEN_HEIGHT / 2)
 
+    # these are pygame 'groups'
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    Player.containers = (updatable, drawable)
     # game loop
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
 
-        player.update(dt)
+        for obj in updatable:
+            player.update(dt)
+
         screen.fill((0, 0, 0))  # black RGB values
 
-        player.draw(screen)
+        for obj in drawable:
+            player.draw(screen)
+
         pygame.display.flip()
 
         # limiting the framerate to 60 fps
